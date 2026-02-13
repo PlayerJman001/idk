@@ -27,6 +27,8 @@
     <script>
         const canvas = document.getElementById("canvas");
         const ctx = canvas.getContext("2d");
+        document.addEventListener("keydown", keyDownHandler);
+        document.addEventListener("keyup", keyUpHandler);
 
         const ballRadius = 10; //Ball hitbox and size
 
@@ -35,6 +37,20 @@
 
         let dx = 2;
         let dy = -2;
+
+        let leftClick = false;
+        let rightClick = false;
+
+        const paddleHeight = 10;
+        const paddleWidth = 75;
+
+        let paddleX = (canvas.width - paddleWidth) / 2;
+
+        let interval = 0;
+
+        const difficultyIncrease = 1.3
+
+
 
         function drawBall() {
             ctx.beginPath();
@@ -46,32 +62,83 @@
 
 
         function draw() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height)
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
             drawBall();
+            drawPaddle();
             x += dx;
             y += dy;    
 
-            //detection from top and bottom 
-            if (y + dy < 0 || y + dy > canvas.height) {
+            //detection from top and bottom, we're using ball radius because if we don't, the code will only await untill the center of the ball reaches the coordinates
+
+            if (y + dy < ballRadius) {
                 dy = -dy;
+            } else if (y + dy > canvas.height - ballRadius) {
+                if (x > paddleX && x < paddleX + paddleHeight) {
+                    dy = -dy;
+                } else if (x > paddleX + ballRadius && x < paddleX + paddleWidth + ballRadius) {
+                    y -= paddleHeight
+                    dy = -dy;
+                    dx *= difficultyIncrease;
+                    dy *= difficultyIncrease;
+                } else {
+                    alert("GAME OVER");
+                    document.location.reload();
+                    clearInterval(interval);
+                }
             }
 
             //detection left right
-            if (x + dx < 0 || x + dx > canvas.width) {
+            if (x + dx < ballRadius || x + dx > canvas.width - ballRadius) {
                 dx = -dx;
+            }
+
+            //to prevent the paddle going off screen, we're setting a minimum and a maximum value, being the right wall - the paddle width, and well, 0, being left
+            
+            if (rightClick) {
+                paddleX = Math.min(paddleX + 4, canvas.width - paddleWidth);
+            } else if (leftClick) {
+                paddleX = Math.max(paddleX - 4, 0);
             }
         }
 
         function startGame() {
-            setInterval(draw, 10);
+            interval = setInterval(draw, 10);
         }
 
         const runButton = document.getElementById("runButton");
         runButton.addEventListener("click", () => {
             startGame();
-            runButton.disabled = true
+            runButton.disabled = true;
         })
 
+        //paddle stuff (who calls it paddle lmao)
+
+        function drawPaddle() {
+            ctx.beginPath();
+            ctx.rect(paddleX, canvas.height - paddleHeight, paddleWidth, paddleHeight);
+            ctx.fillStyle = "#0095DD"; //mmmm lovley, today I learn it was case sensitive
+            ctx.fill();
+            ctx.closePath();
+        }
+        
+
+        //paddle controls (still who calls it a paddle)
+
+        function keyDownHandler(e) {
+            if (e.key === "Right" || e.key === "ArrowRight") {
+                rightClick = true;
+            } else if (e.key === "Left" || e.key === "ArrowLeft") {
+                leftClick = true;
+            }
+        }
+
+        function keyUpHandler(e) {
+            if (e.key === "Right" || e.key === "ArrowRight") {
+                rightClick = false;
+            } else if (e.key === "Left" || e.key === "ArrowLeft") {
+                leftClick = false;
+            }
+        }
     </script>
 </body>
 </html>
