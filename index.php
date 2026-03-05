@@ -194,9 +194,7 @@
                             b.status = 0;
                             score++;
                             if (score === brickColumnCount * brickRowCount) {
-                                alert("You Win!");
-                                document.location.reload();
-                                clearInterval(interval);
+                                 drawBricks();
                             }
                         }
                     }
