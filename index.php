@@ -7,24 +7,15 @@ include '../databses/db_connections.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Canvas</title>
+    <title>Block Breaking</title>
 
-    <style>
-        * {
-            padding: 0;
-            margin: 0;
-        }
-        canvas {
-            background: #eeeeee;
-            display: block;
-            margin: 0 auto;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <canvas id="canvas" width="480" height="320"></canvas>
     <button id="runButton">Start</button>
     
+    <input maxlength="3" id="name">
 
     <!-- Some wierd bug is causing js to not working when in it's own standalone file, so that is why I'll be doing the js in the html, altough it's not usually what I do-->
 
