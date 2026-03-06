@@ -201,6 +201,10 @@ function drawScore() {
 
 
 document.getElementById("Win_Msg").addEventListener('submit', function(event) {
+
+    let name = document.forms["Win_Msg"]["name"].value;
+
+
     fetch("script.php", {
     "method": "POST",
     "body": JSON.stringify(score)
@@ -208,5 +212,14 @@ document.getElementById("Win_Msg").addEventListener('submit', function(event) {
         return response.text();
     }).then(function(data){
         console.log(data)
-    })
+    });
+
+    fetch("script.php", {
+    "method": "POST",
+    "body": JSON.stringify(name)
+    }).then(function(response){
+        return response.text();
+    }).then(function(data){
+        console.log(data)
+    });
 })

@@ -13,7 +13,7 @@
     
 
     <form id="Win_Msg" method="post" name="form" action="script.php" onsubmit="return false;"><b>YOU WIN!<br>  
-        <input maxlength="3" minlength="3" required id="name">
+        <input maxlength="3" minlength="3" required id="name" name="name">
         <input type="submit" value="Submit"> 
     </form>
     <script src="index.js"></script>
