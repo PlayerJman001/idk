@@ -205,7 +205,7 @@ document.getElementById("Win_Msg").addEventListener('submit', function(event) {
     let name = document.forms["Win_Msg"]["name"].value;
 
 
-    fetch("script.php", {
+    fetch("index.php", {
     "method": "POST",
     "body": JSON.stringify(score)
     }).then(function(response){
@@ -214,7 +214,7 @@ document.getElementById("Win_Msg").addEventListener('submit', function(event) {
         console.log(data)
     });
 
-    fetch("script.php", {
+    fetch("index.php", {
     "method": "POST",
     "body": JSON.stringify(name)
     }).then(function(response){
