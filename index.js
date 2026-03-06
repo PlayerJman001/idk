@@ -37,7 +37,9 @@ let score = 0;
 
 let progress = 0;
 
-
+function store_Score() {
+    document.getElementById("score").value = score
+}
 
 let bricks = [];
 function brickReset() {
@@ -108,6 +110,7 @@ function draw() {
             Win_Msg.style.display = "block";
             clearInterval(interval);
             runButton.disabled = false;
+            store_Score();
         }
     }
 
@@ -198,28 +201,3 @@ function drawScore() {
     ctx.fillStyle = "#0095DD";
     ctx.fillText(`Score: ${score}`, 8, 20);
 }
-
-
-document.getElementById("Win_Msg").addEventListener('submit', function(event) {
-
-    let name = document.forms["Win_Msg"]["name"].value;
-
-
-    fetch("index.php", {
-    "method": "POST",
-    "body": JSON.stringify(score)
-    }).then(function(response){
-        return response.text();
-    }).then(function(data){
-        console.log(data)
-    });
-
-    fetch("index.php", {
-    "method": "POST",
-    "body": JSON.stringify(name)
-    }).then(function(response){
-        return response.text();
-    }).then(function(data){
-        console.log(data)
-    });
-})
