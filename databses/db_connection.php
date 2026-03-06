@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
 $user = "jimmy";
-$password = "";
+$password = "Jj12091612";
 $dbname = "BlockBreadkDB";
 
 //creating the connection

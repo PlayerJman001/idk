@@ -1,3 +1,7 @@
+<?php
+include '../databses/db_connections.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -60,6 +64,8 @@
 
         let score = 0;
 
+        let progress = 0;
+
 
 
         let bricks = [];
@@ -105,6 +111,7 @@
             drawPaddle();
             drawScore();
             collisionDetection();
+            drawProgress();
             x += dx;
             y += dy;    
 
@@ -193,8 +200,15 @@
                             dy = -dy;
                             b.status = 0;
                             score++;
-                            if (score === brickColumnCount * brickRowCount) {
-                                 drawBricks();
+                            progress++;
+                            if (progress === brickColumnCount * brickRowCount) {
+                                for (let c = 0; c < brickColumnCount; c++) {
+                                    bricks[c] = []; 
+                                    for (let r = 0; r < brickColumnCount; r++) {
+                                        bricks[c][r] = { x: 0, y :0, status: 1 };
+                                    }
+                                }
+                                progress = 0;
                             }
                         }
                     }
@@ -206,6 +220,12 @@
             ctx.font = "16px Ariel";
             ctx.fillStyle = "#0095DD";
             ctx.fillText(`Score: ${score}`, 8, 20);
+        }
+
+        function drawProgress() {
+            ctx.font = "16px Ariel";
+            ctx.fillStyle = "#0095DD";
+            ctx.fillText(`preogress: ${progress}`, 8, 10);
         }
 
     </script>
