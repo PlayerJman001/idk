@@ -111,7 +111,6 @@ include '../databses/db_connections.php';
             drawPaddle();
             drawScore();
             collisionDetection();
-            drawProgress();
             x += dx;
             y += dy;    
 
@@ -221,13 +220,6 @@ include '../databses/db_connections.php';
             ctx.fillStyle = "#0095DD";
             ctx.fillText(`Score: ${score}`, 8, 20);
         }
-
-        function drawProgress() {
-            ctx.font = "16px Ariel";
-            ctx.fillStyle = "#0095DD";
-            ctx.fillText(`preogress: ${progress}`, 8, 10);
-        }
-
     </script>
 </body>
 </html>
