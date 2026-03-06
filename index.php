@@ -15,7 +15,11 @@ include '../databses/db_connections.php';
     <canvas id="canvas" width="480" height="320"></canvas>
     <button id="runButton">Start</button>
     
-    <input maxlength="3" id="name">
+
+    <form id="Win_Msg"><b>YOU WIN!<br>  
+        <input maxlength="3" minlength="3" required id="name">
+        <input type="submit" value="Submit"> 
+    </form>
 
     <!-- Some wierd bug is causing js to not working when in it's own standalone file, so that is why I'll be doing the js in the html, altough it's not usually what I do-->
 
@@ -24,6 +28,8 @@ include '../databses/db_connections.php';
         const ctx = canvas.getContext("2d");
         document.addEventListener("keydown", keyDownHandler);
         document.addEventListener("keyup", keyUpHandler);
+
+        const Win_Msg = document.getElementById("Win_Msg")
 
         const ballRadius = 10; //Ball hitbox and size
 
@@ -125,9 +131,10 @@ include '../databses/db_connections.php';
                         dx -= difficultyIncrease;
                     }
                 } else {
-                    alert("GAME OVER");
+                    Win_Msg.style.display = "block";
                     clearInterval(interval);
                     runButton.disabled = false;
+                    winCon();
                 }
             }
 
@@ -146,6 +153,7 @@ include '../databses/db_connections.php';
         }
 
         function startGame() {
+            Win_Msg.style.display = "none";
             interval = setInterval(draw, 10);
             score = 0;
             progress = 0;

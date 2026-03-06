@@ -24,4 +24,20 @@ canvas {
 #name {
     display: flex;
     margin: 0 auto;
+    width: 50px;
+    font-family: monospace;
+    font-size: 24px;
+    text-transform: uppercase;
+}
+
+#Win_Msg {
+    padding: 0;
+    margin: 0 auto;
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    font-size: 36px;
 }
