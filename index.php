@@ -60,12 +60,15 @@ include '../databses/db_connections.php';
 
 
         let bricks = [];
-        for (let c = 0; c < brickColumnCount; c++) {
-            bricks[c] = []; 
-            for (let r = 0; r < brickColumnCount; r++) {
-                bricks[c][r] = { x: 0, y :0, status: 1 };
+        function brickReset() {
+            for (let c = 0; c < brickColumnCount; c++) {
+                bricks[c] = []; 
+                for (let r = 0; r < brickColumnCount; r++) {
+                    bricks[c][r] = { x: 0, y :0, status: 1 };
+                }
             }
         }
+        brickReset()
 
 
         function drawBricks() {
@@ -123,8 +126,8 @@ include '../databses/db_connections.php';
                     }
                 } else {
                     alert("GAME OVER");
-                    document.location.reload();
                     clearInterval(interval);
+                    runButton.disabled = false;
                 }
             }
 
@@ -144,6 +147,14 @@ include '../databses/db_connections.php';
 
         function startGame() {
             interval = setInterval(draw, 10);
+            score = 0;
+            progress = 0;
+            dx = 2;
+            dy = -2;
+            x = canvas.width / 2;
+            y = canvas.height - 30;
+            paddleX = (canvas.width - paddleWidth) / 2;
+            brickReset();
         }
 
         const runButton = document.getElementById("runButton");
@@ -192,12 +203,7 @@ include '../databses/db_connections.php';
                             score++;
                             progress++;
                             if (progress === brickColumnCount * brickRowCount) {
-                                for (let c = 0; c < brickColumnCount; c++) {
-                                    bricks[c] = []; 
-                                    for (let r = 0; r < brickColumnCount; r++) {
-                                        bricks[c][r] = { x: 0, y :0, status: 1 };
-                                    }
-                                }
+                                brickReset();
                                 progress = 0;
                             }
                         }
