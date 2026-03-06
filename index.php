@@ -1,7 +1,3 @@
-<?php
-include '../databses/db_connections.php';
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +12,7 @@ include '../databses/db_connections.php';
     <button id="runButton">Start</button>
     
 
-    <form id="Win_Msg" method="get" name="form" action="index.php"><b>YOU WIN!<br>  
+    <form id="Win_Msg" method="post" name="form" action="script.php" onsubmit="return false;"><b>YOU WIN!<br>  
         <input maxlength="3" minlength="3" required id="name">
         <input type="submit" value="Submit"> 
     </form>
