@@ -17,8 +17,17 @@ canvas {
     right: 0;
 }
 
-.scoreboard {
+#scoreboard {
+    position: absolute;
+    left: 10%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+}
+
+.score {
     display: flex;
+
     text-transform: uppercase;
     color: black;
     font-family: "Bitcount Grid Single";

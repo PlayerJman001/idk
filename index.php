@@ -37,18 +37,18 @@ $result = $conn->query($sql);
     <link href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Single:wght@100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-    
+<div id="scoreboard">
     <?php
     if ($result->num_rows > 0) {
-
     while($row = $result->fetch_assoc()) {
-        echo '<div class="scoreboard">  NAME:'  . htmlspecialchars($row["name"]) . " SCORE: " . $row["score"] . '</div>';
+        echo '<div class="score">  NAME:'  . htmlspecialchars($row["name"]) . " SCORE: " . $row["score"] . '</div>';
     }
 
     } else {
         echo "No scores yet.";
     }
     ?>
+</div>
     
     <canvas id="canvas" width="480" height="320"></canvas>
     <button id="runButton">Start</button>
