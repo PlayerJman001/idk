@@ -2,6 +2,7 @@
     padding: 0;
     margin: 0;
 }
+
 canvas {
     background: #eeeeee;
     padding: 0;
@@ -16,9 +17,25 @@ canvas {
     right: 0;
 }
 
+.scoreboard {
+    display: flex;
+    text-transform: uppercase;
+    color: black;
+    font-family: "Bitcount Grid Single";
+    border: black;
+    border-radius: 2px;
+    border-style: solid;
+    width: 175px;
+    top: 50%;
+}
+
 #runButton {
     display: flex;
     margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 #name {
@@ -40,4 +57,9 @@ canvas {
     transform: translate(-50%, -50%);
 
     font-size: 36px;
+}
+
+#test {
+    color: red;
+    text-transform: uppercase;
 }

@@ -109,7 +109,6 @@ function draw() {
         } else {
             Win_Msg.style.display = "block";
             clearInterval(interval);
-            runButton.disabled = false;
             store_Score();
         }
     }
@@ -144,7 +143,7 @@ function startGame() {
 const runButton = document.getElementById("runButton");
 runButton.addEventListener("click", () => {
     startGame();
-    runButton.disabled = true;
+    runButton.style.display = "none";
 })
 
 //paddle stuff (who calls it paddle lmao)
