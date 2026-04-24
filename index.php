@@ -49,9 +49,14 @@ $result = $conn->query($sql);
     }
     ?>
 </div>
+    <div class="tutorial">
+        Press "Start" or Space to begin <br><br>
+        use the left or right arrow, or "A" and "D" key to move the paddle left and right! <br><br>
+        try reaching the top of the leader board by breaking as many blocks as possible!
+    </div>
     
     <canvas id="canvas" width="480" height="320"></canvas>
-    <button id="runButton">Start</button>
+    <div id="runButton">Start</button>
     
 
     <form id="Win_Msg" action="?" method="post" enctype="multipart/form-data" autocomplete="off"><b>GAME OVER!<br>  

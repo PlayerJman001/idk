@@ -213,6 +213,6 @@ function collisionDetection() {
 
 function drawScore() {
     ctx.font = "16px Bitcount Grid Single";
-    ctx.fillStyle = "#0095DD";
+    ctx.fillStyle = "rgb(105, 252, 249)";
     ctx.fillText(`Score: ${score}`, 8, 20);
 }
