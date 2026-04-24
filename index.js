@@ -37,6 +37,8 @@ let score = 0;
 
 let progress = 0;
 
+let gameStatus = false;
+
 function store_Score() {
     document.getElementById("score").value = score
 }
@@ -138,6 +140,8 @@ function startGame() {
     y = canvas.height - 30;
     paddleX = (canvas.width - paddleWidth) / 2;
     brickReset();
+
+    gameStatus = true;
 }
 
 const runButton = document.getElementById("runButton");
@@ -145,6 +149,18 @@ runButton.addEventListener("click", () => {
     startGame();
     runButton.style.display = "none";
 })
+
+document.body.onkeydown = function(e) {
+
+    if (gameStatus === true) {
+        console.log("stopped");
+        
+    } else if (e.key === " " || e.key === "Space") {
+        startGame();
+        runButton.style.display = "none";
+
+    }
+}
 
 //paddle stuff (who calls it paddle lmao)
 
@@ -160,17 +176,17 @@ function drawPaddle() {
 //paddle controls (still who calls it a paddle)
 
 function keyDownHandler(e) {
-    if (e.key === "Right" || e.key === "ArrowRight") {
+    if (e.key === "Right" || e.key === "ArrowRight" || e.key === "d") {
         rightClick = true;
-    } else if (e.key === "Left" || e.key === "ArrowLeft") {
+    } else if (e.key === "Left" || e.key === "ArrowLeft" || e.key === "a") {
         leftClick = true;
     }
 }
 
 function keyUpHandler(e) {
-    if (e.key === "Right" || e.key === "ArrowRight") {
+    if (e.key === "Right" || e.key === "ArrowRight" || e.key === "d") {
         rightClick = false;
-    } else if (e.key === "Left" || e.key === "ArrowLeft") {
+    } else if (e.key === "Left" || e.key === "ArrowLeft" || e.key === "a") {
         leftClick = false;
     }
 }
@@ -196,7 +212,7 @@ function collisionDetection() {
 }
 
 function drawScore() {
-    ctx.font = "16px Ariel";
+    ctx.font = "16px Bitcount Grid Single";
     ctx.fillStyle = "#0095DD";
     ctx.fillText(`Score: ${score}`, 8, 20);
 }

@@ -4,12 +4,14 @@
 }
 
 canvas {
+    border: black solid 2px;
+
     background: #eeeeee;
     padding: 0;
     margin: auto;
     display: block;
-    width: 480px;
-    height: 320px;
+    width: 550px;
+    height: 400px;
     position: absolute;
     top: 0;
     bottom: 0;
@@ -28,13 +30,17 @@ canvas {
 .score {
     display: flex;
 
+    font-size: x-large;
+
+    padding-left: 10px;
+
     text-transform: uppercase;
     color: black;
     font-family: "Bitcount Grid Single";
     border: black;
     border-radius: 2px;
     border-style: solid;
-    width: 175px;
+    width: 300px;
     top: 50%;
 }
 
