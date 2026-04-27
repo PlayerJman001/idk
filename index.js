@@ -39,6 +39,8 @@ let progress = 0;
 
 let gameStatus = false;
 
+const paddleSpeed = 8;
+
 function store_Score() {
     document.getElementById("score").value = score
 }
@@ -112,6 +114,7 @@ function draw() {
             Win_Msg.style.display = "block";
             clearInterval(interval);
             store_Score();
+            log("Game over")
         }
     }
 
@@ -123,9 +126,9 @@ function draw() {
     //to prevent the paddle going off screen, we're setting a minimum and a maximum value, being the right wall - the paddle width, and well, 0, being left
     
     if (rightClick) {
-        paddleX = Math.min(paddleX + 4, canvas.width - paddleWidth);
+        paddleX = Math.min(paddleX + paddleSpeed, canvas.width - paddleWidth);
     } else if (leftClick) {
-        paddleX = Math.max(paddleX - 4, 0);
+        paddleX = Math.max(paddleX - paddleSpeed, 0);
     }
 }
 
@@ -144,16 +147,10 @@ function startGame() {
     gameStatus = true;
 }
 
-const runButton = document.getElementById("runButton");
-runButton.addEventListener("click", () => {
-    startGame();
-    runButton.style.display = "none";
-})
-
 document.body.onkeydown = function(e) {
 
     if (gameStatus === true) {
-        console.log("stopped");
+        console.log("already started");
         
     } else if (e.key === " " || e.key === "Space") {
         startGame();

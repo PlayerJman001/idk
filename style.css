@@ -72,6 +72,9 @@ canvas {
     left: 50%;
     transform: translate(-50%, -50%) skew(-5deg, -5deg);
     color: rgb(0, 49, 133);
+    background-color: transparent;
+    border: none;
+    font-weight: bold;
 
     cursor: pointer;
     transition: font-size 0.2s, color 0.2s;
@@ -101,4 +104,10 @@ canvas {
     transform: translate(-50%, -50%);
 
     font-size: 36px;
+}
+
+#submit {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
 }

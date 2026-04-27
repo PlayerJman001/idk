@@ -56,13 +56,13 @@ $result = $conn->query($sql);
     </div>
     
     <canvas id="canvas" width="480" height="320"></canvas>
-    <div id="runButton">Start</button>
+    <button id="runButton">Start</button>
     
 
     <form id="Win_Msg" action="?" method="post" enctype="multipart/form-data" autocomplete="off"><b>GAME OVER!<br>  
         <input maxlength="3" minlength="3" required id="name" name="name">
         <input type="hidden" id="score" name="score">
-        <input type="submit" name="submit" value="Submit">
+        <input type="submit" name="submit" value="Submit" id="submit">
     </form>
     <script src="index.js"></script>
 </body>
