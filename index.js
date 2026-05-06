@@ -125,7 +125,9 @@ function draw() {
 
     //to prevent the paddle going off screen, we're setting a minimum and a maximum value, being the right wall - the paddle width, and well, 0, being left
     
-    if (rightClick) {
+    if (rightClick && leftClick == true){
+        paddleX = paddleX + 0;
+    } else if (rightClick) {
         paddleX = Math.min(paddleX + paddleSpeed, canvas.width - paddleWidth);
     } else if (leftClick) {
         paddleX = Math.max(paddleX - paddleSpeed, 0);

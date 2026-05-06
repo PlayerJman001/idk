@@ -41,7 +41,7 @@ $result = $conn->query($sql);
     <?php
     if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
-        echo '<div class="score">  NAME:'  . htmlspecialchars($row["name"]) . " SCORE: " . $row["score"] . '</div>';
+        echo '<div class="score">'  . htmlspecialchars($row["name"]) . " SCORE: " . $row["score"] . '</div>';
     }
 
     } else {

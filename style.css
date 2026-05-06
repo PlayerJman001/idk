@@ -57,7 +57,7 @@ canvas {
     border: rgb(36, 181, 255);
     border-radius: 2px;
     border-style: solid;
-    width: 300px;
+    width: 180px;
     top: 50%;
 
     transform: skew(-10deg, -5deg);
