@@ -145,6 +145,7 @@ function startGame() {
     y = canvas.height - 30;
     paddleX = (canvas.width - paddleWidth) / 2;
     brickReset();
+    runButton.style.display = "none";
 
     gameStatus = true;
 }

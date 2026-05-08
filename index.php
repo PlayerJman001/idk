@@ -56,7 +56,7 @@ $result = $conn->query($sql);
     </div>
     
     <canvas id="canvas" width="480" height="320"></canvas>
-    <button id="runButton">Start</button>
+    <button id="runButton" onclick="startGame()">Start</button>
     
 
     <form id="Win_Msg" action="?" method="post" enctype="multipart/form-data" autocomplete="off"><b>GAME OVER!<br>  
