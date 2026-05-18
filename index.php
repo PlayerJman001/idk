@@ -38,6 +38,7 @@ $result = $conn->query($sql);
 </head>
 <body>
 <div id="scoreboard">
+    <div> scoreboard</div>
     <?php
     if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
@@ -60,6 +61,7 @@ $result = $conn->query($sql);
     
 
     <form id="Win_Msg" action="?" method="post" enctype="multipart/form-data" autocomplete="off"><b>GAME OVER!<br>  
+        <label>Name</label>
         <input maxlength="3" minlength="3" required id="name" name="name">
         <input type="hidden" id="score" name="score">
         <input type="submit" name="submit" value="Submit" id="submit">

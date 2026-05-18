@@ -92,7 +92,11 @@ canvas {
     font-family: monospace;
     font-size: 24px;
     text-transform: uppercase;
+    border: none;
+
+    background-color: rgb(36, 181, 255);
 }
+
 
 #Win_Msg {
     padding: 0;

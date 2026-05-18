@@ -152,13 +152,10 @@ function startGame() {
 
 document.body.onkeydown = function(e) {
 
-    if (gameStatus === true) {
-        console.log("already started");
-        
-    } else if (e.key === " " || e.key === "Space") {
+    if (gameStatus === false && (e.key === " " || e.key === "Space")) {
         startGame();
         runButton.style.display = "none";
-
+        
     }
 }
 
