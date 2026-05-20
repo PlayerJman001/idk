@@ -61,8 +61,7 @@ $result = $conn->query($sql);
     
 
     <form id="Win_Msg" action="?" method="post" enctype="multipart/form-data" autocomplete="off"><b>GAME OVER!<br>  
-        <label>Name</label>
-        <input maxlength="3" minlength="3" required id="name" name="name">
+        <input maxlength="3" minlength="3" required id="name" name="name" title="Name">
         <input type="hidden" id="score" name="score">
         <input type="submit" name="submit" value="Submit" id="submit">
     </form>
